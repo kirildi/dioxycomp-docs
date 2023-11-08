@@ -584,6 +584,10 @@ video {
   top: 0px;
 }
 
+.z-20 {
+  z-index: 20;
+}
+
 .order-first {
   order: -9999;
 }
@@ -612,10 +616,6 @@ video {
 
 .flex {
   display: flex;
-}
-
-.hidden {
-  display: none;
 }
 
 .h-12 {
