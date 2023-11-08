@@ -1,7 +1,7 @@
 [application]
 
 # App (Project) Name
-name = "TailwindDioxus"
+name = "DioxycompDocs"
 
 # Dioxus App Default Platform
 # desktop, web, mobile, ssr
@@ -16,8 +16,8 @@ asset_dir = "public/css"
 [web.app]
 
 # HTML title tag content
-title = "TailwindDioxus"
-base_path="."
+title = "DioxycompDocs"
+base_path="dioxycomp-docs"
 
 [web.watcher]
 
