@@ -9,7 +9,7 @@ default_platform = "web"
 
 # `build` & `serve` dist path
 out_dir = "docs"
-base_path="/"
+base_path="dioxycomp-docs"
 
 # resource (public) file folder
 asset_dir = "public/css"
