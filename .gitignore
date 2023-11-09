@@ -15,3 +15,5 @@ Cargo.lock
 
 # VS Code
 .vscode
+
+docs/serve.json
