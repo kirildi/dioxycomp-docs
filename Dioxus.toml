@@ -9,7 +9,6 @@ default_platform = "web"
 
 # `build` & `serve` dist path
 out_dir = "docs"
-base_path="dioxycomp-docs"
 
 # resource (public) file folder
 asset_dir = "public/css"
@@ -18,6 +17,8 @@ asset_dir = "public/css"
 
 # HTML title tag content
 title = "DioxycompDocs"
+
+base_path="dioxycomp-docs"
 
 [web.watcher]
 
