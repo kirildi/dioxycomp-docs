@@ -14,18 +14,19 @@ use crate::pages::headless::HeadlessPage::HeadlessPage;
 #[rustfmt::skip]
 pub enum Route {
     #[layout(App)]
-        #[nest("/headless")]
-            #[layout(HeadlessPage)]                
-                #[route("/:name")]
-                PageLoader { name: String },
-            #[end_layout]
-        #[end_nest]
-        #[route("/")]
-        Main {},
-        #[route("/:..route")]
-        PageNotFound {
-            route: Vec<String>,       
-        },       
+        #[nest("/dioxycomp-docs")]
+            #[nest("/headless")]
+                #[layout(HeadlessPage)]                
+                    #[route("/:name")]
+                    PageLoader { name: String },
+                #[end_layout]
+            #[end_nest]
+            #[route("/")]
+            Main {},
+            #[route("/:..route")]
+            PageNotFound {
+                route: Vec<String>,       
+            },       
 }
 
 #[inline_props]
