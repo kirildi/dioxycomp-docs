@@ -1,10 +1,12 @@
 #![allow(non_snake_case)]
 
 use dioxus::prelude::*;
-use dioxycomp_headless::components::Button::Button;
+pub use dioxycomp_headless::components::Button::Button;
+pub use dioxycomp_headless::components::Button::ButtonProps;
 
 #[inline_props]
 pub fn ButtonPage(cx: Scope, name: String) -> Element {
+    let bp = ButtonProps{ id: Some("0"), label: Some("OK"), autofocus:Some(false), disabled: Some(false), name: Some(""), r#type: Some(""), value: Some(""), styles: Some("width:3em; height:2em; font-size: 1em; border:1px solid #fef")};
     cx.render(rsx! {
         section {
             id: "main_heading",
@@ -38,11 +40,14 @@ pub fn ButtonPage(cx: Scope, name: String) -> Element {
                 }
                 div {
                     class: "flex justify-center items-center w-full h-24",
-                    Button {}
+                    Button {
+                        button_props: bp,
+                    }
+ 
                 }
             },
             div {
-                class: "flex flex-wrap flex-row p-4 h-96 bg-neutral-800 rounded-xl",
+                class: "flex flex-wrap flex-row p-4 h-auto bg-neutral-800 rounded-xl",
                 div {
                     class: "w-full h-8 pl-4 pb-12 text-white/40 border-b-2 border-white/30 ",
                     "Code: "
@@ -53,13 +58,19 @@ pub fn ButtonPage(cx: Scope, name: String) -> Element {
                         code {
                             class: "text-base",
                             "
-                            use dioxycomp_headless::components::Button::Button;
+                            pub use dioxycomp_headless::components::Button::Button;
+                            pub use dioxycomp_headless::components::Button::ButtonProps;
                             //... Some other code here
                             
-                            pub fn HomePage(cx: Scope, name: String) -> Element {{    
-                                p {{
-                                    Button {{}},
-                                }}
+                            pub fn HomePage(cx: Scope, name: String) -> Element {{ 
+                                let bp = ButtonProps{{ id: Some(\"0\"), label: Some(\"OK\"), autofocus:Some(false),
+                                disabled: Some(false),name: Some(\"\"), r#type: Some(\"\"),
+                                value: Some(\"\"), styles: Some(\"\") }};
+                                cx.render(rsx!{{
+                                    p {{
+                                        Button {{button_props: bp}},
+                                    }}
+                                }})
                             }} 
                             "
                         }

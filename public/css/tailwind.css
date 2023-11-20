@@ -662,6 +662,10 @@ video {
   height: 24em;
 }
 
+.h-auto {
+  height: auto;
+}
+
 .w-64 {
   width: 16rem;
 }
