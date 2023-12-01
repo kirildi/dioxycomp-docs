@@ -18,7 +18,7 @@ asset_dir = "public/."
 # HTML title tag content
 title = "DioxycompDocs"
 
-base_path="."
+base_path="dioxycomp-docs"
 
 [web.watcher]
 
