@@ -14,7 +14,7 @@ pub fn Header(cx: Scope) -> Element {
                 class: "ml-0 h-24 order-first",
                 img {
                     class: "w-24 h-24 p-4",
-                    src: "/assets/image/dioxy_logo_v0.1.svg",
+                    src: "/dioxycomp-docs/assets/image/dioxy_logo_v0.1.svg",
                     alt: "Dioxycomp Logo"
                 }
             },
