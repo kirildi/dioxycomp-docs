@@ -11,14 +11,14 @@ default_platform = "web"
 out_dir = "docs"
 
 # resource (public) file folder
-asset_dir = "public/css"
+asset_dir = "public/."
 
 [web.app]
 
 # HTML title tag content
 title = "DioxycompDocs"
 
-base_path="dioxycomp-docs"
+base_path="."
 
 [web.watcher]
 
@@ -26,7 +26,7 @@ base_path="dioxycomp-docs"
 reload_html = true
 
 # which files or dirs will be watcher monitoring
-watch_path = ["src", "public/css"]
+watch_path = ["src", "public"]
 
 # uncomment line below if using Router
 index_on_404 = true
@@ -35,7 +35,7 @@ index_on_404 = true
 [web.resource]
 
 # CSS style file
-style = ["/dioxycomp-docs/tailwind.css", "/dioxycomp-docs/styles.css", "https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"]
+style = ["/assets/css/tailwind.css", "/assets/css/styles.css", "https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"]
 
 # Javascript code file
 script = []
