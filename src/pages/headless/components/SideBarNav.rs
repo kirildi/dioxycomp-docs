@@ -18,7 +18,7 @@ pub fn SideBarNav(cx: Scope) -> Element {
             id: Some("0"),
             value: None,
             kind: Some(&BadgeKind::Dev),
-            class_name: Some("px-3 py-1 rounded text-xs bg-blue-800"),
+            class_name: Some("px-3 py-1 rounded text-xs"),
             styling: None,
         };
         rsx!(Link {

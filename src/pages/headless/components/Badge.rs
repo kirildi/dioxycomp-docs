@@ -28,34 +28,35 @@ pub struct AllBadgeProps<'a> {
 
 pub fn Badge<'a>(cx: Scope<'a, AllBadgeProps<'a>>) -> Element<'a> {
     //TODO currently supporting only Tailwind css case
-    let mut badge_kind = match cx.props.badge_props.kind {
-        Some(BadgeKind::Dev) => Some("bg-orange-800"),
-        Some(BadgeKind::Beta) => Some("bg-sky-800"),
-        Some(BadgeKind::Final) => Some("bg-emerald-800"),
-        None => Some("bg-orange-800"),
+    let mut badge_kind = match cx.props.badge_props.kind.as_ref().unwrap() {
+        BadgeKind::Dev => "bg-orange-800",
+        BadgeKind::Beta => "bg-sky-800",
+        BadgeKind::Final => "bg-emerald-800",
     };
 
     let mut label_style = "color: white";
-    let mut label_value = match cx.props.badge_props.kind {
-        Some(BadgeKind::Dev) => Some("DEV"),
-        Some(BadgeKind::Beta) => Some("BETA"),
-        Some(BadgeKind::Final) => Some("FINAL"),
-        None => Some("DEV"),
+    let mut label_value = match cx.props.badge_props.kind.as_ref().unwrap() {
+        BadgeKind::Dev => "DEV",
+        BadgeKind::Beta => "BETA",
+        BadgeKind::Final => "FINAL",
     };
 
     let lp = LabelProps {
         id: Some(cx.props.badge_props.id.as_ref().unwrap()),
         r#for: None,
-        value: Some(label_value.as_ref().unwrap()),
+        value: Some(label_value),
+        class_name: Some(""),
         styles: Some(label_style),
     };
 
     cx.render(rsx! {
-          span {
-            id: cx.props.badge_props.id,
-            class: cx.props.badge_props.class_name,
-            style: cx.props.badge_props.styling,
-                Label{ label_props: lp}
-          }
+        span {
+        id: cx.props.badge_props.id,
+        class: "{cx.props.badge_props.class_name.unwrap()} {badge_kind}",
+        style: cx.props.badge_props.styling,
+            Label {
+                label_props: Some(lp),
+            }
+        }
     })
 }
