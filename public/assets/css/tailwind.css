@@ -654,10 +654,6 @@ video {
   height: 2rem;
 }
 
-.h-96 {
-  height: 24rem;
-}
-
 .h-\[24em\] {
   height: 24em;
 }
@@ -919,11 +915,6 @@ video {
 .text-4xl {
   font-size: 2.25rem;
   line-height: 2.5rem;
-}
-
-.text-base {
-  font-size: 1rem;
-  line-height: 1.5rem;
 }
 
 .text-lg {
