@@ -8,5 +8,58 @@ main section {
 }
 
 hr {
-      @apply h-1 border-none bg-neutral-300
+      @apply h-1 border-none bg-neutral-300;
+}
+
+/* RS snippets style rules */
+
+.rs-keyword {
+      @apply text-orange-500;
+}
+
+.rs-module {
+      @apply text-sky-300;
+}
+
+.rs-operator {
+      @apply text-orange-300;
+}
+
+.rs-element {
+      @apply text-violet-400;
+}
+
+.rs-comment {
+      @apply text-emerald-700;
+}
+
+.rs-function,
+.rs-option-type,
+.rs-fn-object-member {
+      @apply text-amber-400;
+}
+
+.rs-type,
+.rs-prop-value {
+      @apply text-purple-400;
+}
+
+.rs-fn-param {
+      @apply text-blue-400;
+}
+
+.rs-fn-param-type {
+      @apply text-red-400;
+}
+
+.rs-variable-name {
+      @apply text-green-400;
+}
+
+.rs-props-name {
+      @apply text-lime-600;
+}
+
+.rs-child-element {
+      @apply text-pink-300;
 }

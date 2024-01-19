@@ -44,30 +44,66 @@ pub fn SelectPage(cx: Scope, name: String) -> Element {
                 }
             },
             div {
-                class: "flex flex-wrap flex-row p-4 h-96 bg-neutral-800 rounded-xl",
+                class: "flex flex-wrap flex-row gap-4 p-4 h-auto bg-neutral-800 rounded-xl",
                 div {
                     class: "w-full h-8 pl-4 pb-12 text-white/40 border-b-2 border-white/30 ",
                     "Code: "
                 },
                 div {
-                    class: "flex justify-start items-center", 
+                    class: "flex justify-start items-center w-full rounded-xl bg-zinc-900", 
                     pre {
+                        class: "py-4 pl-16",
                         code {
-                            class: "text-base",
-                            "
-                            use dioxycomp_headless::components::Select::Select;
-                            //... Some other code here
-                            
-                            pub fn HomePage(cx: Scope, name: String) -> Element {{    
-                                p {{
-                                    Select {{}},
-                                }}
-                            }} 
-                            "
+                            class: "text-sm whitespace-pre-wrap",
+                            span { class: "rs-keyword", "pub use "},
+                            span { class: "rs-module", "dioxycomp_headless" },
+                            span { class: "rs-operator", "::" },
+                            span { class: "rs-module", "components"},
+                            span { class: "rs-operator", "::" },
+                            span { class: "rs-module", "Select"},
+                            span { class: "rs-operator", "::" },
+                            span { class: "rs-element", "Select"},
+                            span { class: "rs-operator", ";" },
+                            span { class: "", "\n" },
+                            span { class: "rs-comment", "//... Some other code here "},
+                            span { class: "", "\n" },
+                            span { class: "rs-keyword", "pub fn " },
+                            span { class: "rs-function", "HomePage" },
+                            span { class: "rs-operator", "(" },
+                            span { class: "rs-fn-param", "cx: " },
+                            span { class: "rs-fn-param-type", "Scope" },
+                            span { class: "rs-operator", ", " },
+                            span { class: "rs-fn-param", "name: " },
+                            span { class: "rs-fn-param-type", "String" },
+                            span { class: "rs-operator",")" },
+                            span { class: "rs-operator", " -> " },
+                            span { class: "rs-type", "Element " },
+                            span { class: "rs-operator", "{{" },
+                            span { class: "", "\n" },
+                            span { class: "rs-fn-param", "    cx" },
+                            span { class: "rs-operator", "." },
+                            span { class: "rs-fn-object-member", "render" },
+                            span { class: "rs-operator", "(" },
+                            span { class: "rs-fn-object-member", "rsx!" },
+                            span { class: "rs-operator", "{{" },
+                            span { class: "", "\n" },
+                            span { class: "rs-child-element", "        p " },
+                            span { class: "rs-operator", "{{" },
+                            span { class: "", "\n" },
+                            span { class: "rs-element", "            Select " },
+                            span { class: "rs-operator", "{{ }}" },
+                            span { class: "rs-operator", "," },
+                            span { class: "", "\n" },
+                            span { class: "rs-operator", "        }}" },
+                            span { class: "", "\n" },
+                            span { class: "rs-operator", "    }}" },
+                            span { class: "rs-operator", ")" },
+                            span { class: "", "\n" },
+                            span { class: "rs-operator", "}}" },
                         }
                     }
                 }
             }
         }
-   })
+    })
 }
