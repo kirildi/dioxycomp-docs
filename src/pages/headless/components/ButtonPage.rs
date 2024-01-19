@@ -61,7 +61,7 @@ pub fn ButtonPage(cx: Scope, name: String) -> Element {
                     "Code: "
                 },
                 div {
-                    class: "flex justify-start items-center w-full rounded-xl bg-neutral-900", 
+                    class: "flex justify-start items-center w-full rounded-xl bg-zinc-900", 
                     pre {
                         class: "py-4 pl-16",
                         code {
