@@ -5,9 +5,9 @@ use dioxus_router::prelude::*;
 use super::Nav::Nav;
 use crate::router::PageRouter::Route;
 
-#[inline_props]
-pub fn Header(cx: Scope) -> Element {
-    cx.render(rsx! {
+#[component]
+pub fn Header() -> Element {
+    rsx! {
         header{
             class: "flex sticky w-full top-0 h-24 justify-between bg-neutral-800 z-20",
             div {
@@ -20,6 +20,5 @@ pub fn Header(cx: Scope) -> Element {
             },
             Nav {},
         },
-
-    })
+    }
 }

@@ -9,6 +9,8 @@
 use dioxus::prelude::*;
 use dioxus_fullstack::{launch, prelude::*};
 use dioxus_router::prelude::*;
+use serde::{Deserialize, Serialize};
+
 use dioxycomp_headless::components::*;
 
 pub mod app;
@@ -16,33 +18,50 @@ pub mod pages;
 pub mod router;
 
 use router::PageRouter::Route;
-
 // Generate all routes and output them to the docs path
-#[cfg(feature = "ssr")]
+#[cfg(feature = "server")]
 #[tokio::main]
 async fn main() {
-    pre_cache_static_routes_with_props(
-        &ServeConfigBuilder::new_with_router(dioxus_fullstack::router::FullstackRouterConfig::<
-            Route,
-        >::default())
-        .assets_path("docs")
-        .incremental(IncrementalRendererConfig::default().static_dir("docs"))
-        .build(),
-    )
-    .await
-    .unwrap();
+    let wrapper = DefaultRenderer {
+        before_body: r#"<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,
+        initial-scale=1.0">
+        <title>Dioxus Application</title>
+    </head>
+    <body>"#
+            .to_string(),
+        after_body: r#"</body>
+    </html>"#
+            .to_string(),
+    };
+    let mut renderer = IncrementalRenderer::builder().build();
+    pre_cache_static_routes::<Route, _>(&mut renderer, &wrapper)
+        .await
+        .unwrap();
 }
+// async fn main() {
+//     pre_cache_static_routes_with_props(
+//         &ServeConfigBuilder::new_with_router(dioxus_fullstack::router::FullstackRouterConfig::<
+//             Route,
+//         >::default())
+//         .assets_path("docs")
+//         .incremental(IncrementalRendererConfig::default().static_dir("docs"))
+//         .build(),
+//     )
+//     .await
+//     .unwrap();
+// }
 
 // Hydrate the page
-#[cfg(feature = "web")]
+#[cfg(not(feature = "server"))]
 fn main() {
-    dioxus_web::launch_with_props(
-        dioxus_fullstack::router::RouteWithCfg::<Route>,
-        dioxus_fullstack::prelude::get_root_props_from_document()
-            .expect("Failed to get root props from document"),
-        dioxus_web::Config::default().hydrate(true),
-    );
+    #[cfg(all(feature = "web", not(feature = "server")))]
+    dioxus_web::launch::launch(
+        app::App,
+        Default::default(),
+        dioxus_web::Config::new().hydrate(true),
+    )
 }
-
-#[cfg(not(any(feature = "web", feature = "ssr")))]
-fn main() {}

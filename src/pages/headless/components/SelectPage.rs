@@ -3,9 +3,9 @@
 use dioxus::prelude::*;
 use dioxycomp_headless::components::Select::Select;
 
-#[inline_props]
-pub fn SelectPage(cx: Scope, name: String) -> Element {
-    cx.render(rsx! {
+#[component]
+pub fn SelectPage(name: String) -> Element {
+    rsx! {
         section {
             id: "main_heading",
             h1 {
@@ -15,10 +15,10 @@ pub fn SelectPage(cx: Scope, name: String) -> Element {
             hr {},
         },
         section {
-            id: "description", 
+            id: "description",
             p {
                 class: "text-xl",
-                "The Select component typically displays a list with options and allows user to select one option.  
+                "The Select component typically displays a list with options and allows user to select one option.
                 Select consists of a label, a button which displays a selected value,
                 and a listbox, displayed in a popover.
                 Users can click/tap on the button to open the listbox popover.
@@ -50,7 +50,7 @@ pub fn SelectPage(cx: Scope, name: String) -> Element {
                     "Code: "
                 },
                 div {
-                    class: "flex justify-start items-center w-full rounded-xl bg-zinc-900", 
+                    class: "flex justify-start items-center w-full rounded-xl bg-zinc-900",
                     pre {
                         class: "py-4 pl-16",
                         code {
@@ -105,5 +105,5 @@ pub fn SelectPage(cx: Scope, name: String) -> Element {
                 }
             }
         }
-    })
+    }
 }

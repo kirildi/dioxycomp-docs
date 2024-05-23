@@ -1,22 +1,22 @@
-#![allow(non_snake_case)]
-
 use dioxus::prelude::*;
 pub use dioxycomp_headless::components::Button::Button;
 pub use dioxycomp_headless::components::Button::ButtonProps;
 
-#[inline_props]
-pub fn ButtonPage(cx: Scope, name: String) -> Element {
+#[component]
+pub fn ButtonPage(name: String) -> Element {
     let bp = ButtonProps {
-        id: Some("0"),
-        label: Some("OK"),
+        id: Some(String::from("0")),
+        label: Some(String::from("OK")),
         autofocus: Some(false),
         disabled: Some(false),
-        name: Some(""),
-        r#type: Some(""),
-        value: Some(""),
-        styles: Some("width:3em; height:2em; font-size: 1em; border:1px solid #fef"),
+        name: Some(String::from("")),
+        r#type: Some(String::from("")),
+        value: Some(String::from("")),
+        styles: Some(String::from(
+            "width:3em; height:2em; font-size: 1em; border:1px solid #fef",
+        )),
     };
-    cx.render(rsx! {
+    rsx! {
         section {
             id: "main_heading",
             h1 {
@@ -26,7 +26,7 @@ pub fn ButtonPage(cx: Scope, name: String) -> Element {
             hr {},
         },
         section {
-            id: "description", 
+            id: "description",
             p {
                 class: "text-xl",
                 "Buttons are one of the main components commonly used on a webpage.
@@ -49,9 +49,7 @@ pub fn ButtonPage(cx: Scope, name: String) -> Element {
                 }
                 div {
                     class: "flex justify-center items-center w-full h-24",
-                    Button {
-                        button_props: bp,
-                    }
+                    Button {  }
                 }
             },
             div {
@@ -61,7 +59,7 @@ pub fn ButtonPage(cx: Scope, name: String) -> Element {
                     "Code: "
                 },
                 div {
-                    class: "flex justify-start items-center w-full rounded-xl bg-zinc-900", 
+                    class: "flex justify-start items-center w-full rounded-xl bg-zinc-900",
                     pre {
                         class: "py-4 pl-16",
                         code {
@@ -218,5 +216,5 @@ pub fn ButtonPage(cx: Scope, name: String) -> Element {
                 }
             }
         }
-    })
+    }
 }

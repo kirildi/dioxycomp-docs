@@ -6,9 +6,9 @@ use dioxus_router::prelude::*;
 use super::components::SideBarNav::SideBarNav;
 use crate::router::PageRouter::Route;
 
-#[inline_props]
-pub fn HeadlessPage(cx: Scope) -> Element {
-    cx.render(rsx! {
+#[component]
+pub fn HeadlessPage() -> Element {
+    rsx! {
         div {
             class: "flex",
             SideBarNav {},
@@ -17,5 +17,5 @@ pub fn HeadlessPage(cx: Scope) -> Element {
                 Outlet::<Route> {}
             },
         }
-    })
+    }
 }
