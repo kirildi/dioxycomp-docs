@@ -4,8 +4,9 @@ use dioxus_router::prelude::*;
 
 use crate::router::PageRouter::Route;
 
-pub fn Nav(cx: Scope) -> Element {
-    cx.render(rsx! {
+#[component]
+pub fn Nav() -> Element {
+    rsx! {
         nav {
             class: "h-24 p-8 flex gap-8 text-xl mr-0 order-last",
 
@@ -19,7 +20,6 @@ pub fn Nav(cx: Scope) -> Element {
                 to: Route::PageLoader { name: String::from("Button") },
                 "Headless"
             },
-
         }
-    })
+    }
 }

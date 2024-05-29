@@ -2,8 +2,8 @@
 use super::components::HeadlessCard::HeadlessCard;
 use dioxus::prelude::*;
 
-pub fn HomePage(cx: Scope) -> Element {
-    cx.render(rsx! {
+pub fn HomePage() -> Element {
+    rsx! {
         section {
             class: "h-56 mx-auto pt-12 bg-gray-800",
             h1 {
@@ -25,5 +25,5 @@ pub fn HomePage(cx: Scope) -> Element {
             class: "p-4 bg-gray-800",
             HeadlessCard {}
         }
-    })
+    }
 }

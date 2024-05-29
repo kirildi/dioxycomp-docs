@@ -3,9 +3,9 @@
 use dioxus::prelude::*;
 use dioxycomp_headless::components::Radio::Radio;
 
-#[inline_props]
-pub fn RadioPage(cx: Scope, name: String) -> Element {
-    cx.render(rsx! {
+#[component]
+pub fn RadioPage(name: String) -> Element {
+    rsx! {
         section {
             id: "main_heading",
             h1 {
@@ -15,10 +15,10 @@ pub fn RadioPage(cx: Scope, name: String) -> Element {
             hr {},
         },
         section {
-            id: "description", 
+            id: "description",
             p {
                 class: "text-xl",
-                "The Radio button typically allows user to select an item from a list of individual items, or mark one individual item as selected.  
+                "The Radio button typically allows user to select an item from a list of individual items, or mark one individual item as selected.
                 They consist of a visual select indicator and a label.
                 "
             },
@@ -48,7 +48,7 @@ pub fn RadioPage(cx: Scope, name: String) -> Element {
                     "Code: "
                 },
                 div {
-                    class: "flex justify-start items-center w-full rounded-xl bg-zinc-900", 
+                    class: "flex justify-start items-center w-full rounded-xl bg-zinc-900",
                     pre {
                         class: "py-4 pl-16",
                         code {
@@ -103,5 +103,5 @@ pub fn RadioPage(cx: Scope, name: String) -> Element {
                 }
             }
         }
-    })
+    }
 }

@@ -7,56 +7,52 @@
 use dioxus::prelude::*;
 use dioxycomp_headless::components::Label::{Label, LabelProps};
 
+#[derive(Clone, PartialEq, Default, Copy)]
 pub enum BadgeKind {
+    #[default]
     Dev,
     Beta,
     Final,
 }
 
-#[derive(Props, Clone, Default)]
-pub struct BadgeProps<'a> {
-    pub id: Option<&'a str>,
-    pub value: Option<&'a str>,
-    pub kind: Option<&'a BadgeKind>,
-    pub class_name: Option<&'a str>,
-    pub styling: Option<&'a str>,
+#[derive(PartialEq, Props, Clone)]
+pub struct BadgeProps {
+    pub id: Option<String>,
+    pub value: Option<String>,
+    pub kind: Option<BadgeKind>,
+    pub class_name: Option<String>,
+    pub styling: Option<String>,
 }
-#[derive(Props, Clone, Default)]
-pub struct AllBadgeProps<'a> {
-    pub badge_props: BadgeProps<'a>,
-}
-
-pub fn Badge<'a>(cx: Scope<'a, AllBadgeProps<'a>>) -> Element<'a> {
+#[component]
+pub fn Badge(props: BadgeProps) -> Element {
     //TODO currently supporting only Tailwind css case
-    let mut badge_kind = match cx.props.badge_props.kind.as_ref().unwrap() {
+    let mut badge_kind = match props.kind.unwrap() {
         BadgeKind::Dev => "bg-orange-800",
         BadgeKind::Beta => "bg-sky-800",
         BadgeKind::Final => "bg-emerald-800",
     };
 
-    let mut label_style = "color: white";
-    let mut label_value = match cx.props.badge_props.kind.as_ref().unwrap() {
-        BadgeKind::Dev => "DEV",
-        BadgeKind::Beta => "BETA",
-        BadgeKind::Final => "FINAL",
+    let mut label_style = String::from("color: white");
+    let mut label_value = match props.kind.to_owned().unwrap_or_default() {
+        BadgeKind::Dev => String::from("DEV"),
+        BadgeKind::Beta => String::from("BETA"),
+        BadgeKind::Final => String::from("FINAL"),
     };
 
-    let lp = LabelProps {
-        id: Some(cx.props.badge_props.id.as_ref().unwrap()),
+    let lp: LabelProps = LabelProps {
+        id: Some(props.id.to_owned().unwrap()),
         r#for: None,
         value: Some(label_value),
-        class_name: Some(""),
+        class_name: Some(String::from("")),
         styles: Some(label_style),
     };
 
-    cx.render(rsx! {
+    rsx! {
         span {
-        id: cx.props.badge_props.id,
-        class: "{cx.props.badge_props.class_name.unwrap()} {badge_kind}",
-        style: cx.props.badge_props.styling,
-            Label {
-                label_props: Some(lp),
-            }
+        id: props.id.to_owned().unwrap(),
+        class: "{props.class_name.unwrap()} {badge_kind}",
+        style: props.styling,
+            Label { },
         }
-    })
+    }
 }

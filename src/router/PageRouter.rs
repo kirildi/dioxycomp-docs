@@ -10,28 +10,27 @@ use crate::router::PageLoader::PageLoader;
 
 use crate::pages::headless::HeadlessPage::HeadlessPage;
 
-#[derive(Clone, Routable, Debug, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Routable, PartialEq, Serialize, Deserialize)]
 #[rustfmt::skip]
 pub enum Route {
     #[layout(App)]
-        #[nest("/dioxycomp-docs")]
-            #[nest("/headless")]
-                #[layout(HeadlessPage)]                
-                    #[route("/:name")]
-                    PageLoader { name: String },
-                #[end_layout]
-            #[end_nest]
-            #[route("/")]
-            Main {},
-            #[route("/:..route")]
-            PageNotFound {
-                route: Vec<String>,       
-            },       
+        #[nest("/headless")]
+            #[layout(HeadlessPage)]                
+                #[route("/:name")]
+                PageLoader { name: String },
+            #[end_layout]
+        #[end_nest]
+        #[route("/")]
+        Main {},
+        #[route("/:..route")]
+        PageNotFound {
+            route: Vec<String>,       
+        },       
 }
 
-#[inline_props]
-fn PageNotFound(cx: Scope, route: Vec<String>) -> Element {
-    render! {
+#[component]
+fn PageNotFound(route: Vec<String>) -> Element {
+    rsx! {
         h1 { "Page not found" }
         p { "We are terribly sorry, but the page you requested doesn't exist." }
         pre {

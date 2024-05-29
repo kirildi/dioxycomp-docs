@@ -3,9 +3,9 @@
 use dioxus::prelude::*;
 use dioxycomp_headless::components::Checkbox::Checkbox;
 
-#[inline_props]
-pub fn CheckboxPage(cx: Scope, name: String) -> Element {
-    cx.render(rsx! {
+#[component]
+pub fn CheckboxPage(name: String) -> Element {
+    rsx! {
         section {
             id: "main_heading",
             h1 {
@@ -15,10 +15,10 @@ pub fn CheckboxPage(cx: Scope, name: String) -> Element {
             hr {},
         },
         section {
-            id: "description", 
+            id: "description",
             p {
                 class: "text-xl",
-                "The checkboxes are typically used to select an item from a list of individual items, or mark one individual item as selected.  
+                "The checkboxes are typically used to select an item from a list of individual items, or mark one individual item as selected.
                 They consist of a visual select indicator and a label. Checkboxes support three selection states - checked, unchecked and indeterminate. 
                 "
             },
@@ -48,7 +48,7 @@ pub fn CheckboxPage(cx: Scope, name: String) -> Element {
                     "Code: "
                 },
                 div {
-                    class: "flex justify-start items-center w-full rounded-xl bg-zinc-900", 
+                    class: "flex justify-start items-center w-full rounded-xl bg-zinc-900",
                     pre {
                         class: "py-4 pl-16",
                         code {
@@ -103,5 +103,5 @@ pub fn CheckboxPage(cx: Scope, name: String) -> Element {
                 }
             }
         }
-    })
+    }
 }
