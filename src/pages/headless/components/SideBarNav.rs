@@ -13,46 +13,47 @@ pub fn SideBarNav() -> Element {
     let links = ["Button", "Checkbox", "Radio", "Select"];
     let badge_class = "";
     let li_link_loader = links.iter().map(|link_key| {
-        let badge_prop = BadgeProps {
-            id: Some(String::from("0")),
-            value: None,
-            kind: Some(BadgeKind::Dev),
-            class_name: Some(String::from("px-3 py-1 rounded text-xs")),
-            styling: None,
-        };
+        // let badge_prop = BadgeProps {
+        //     id: Some(String::from("0")),
+        //     value: None,
+        //     kind: Some(BadgeKind::Dev),
+        //     class_name: Some(String::from("px-3 py-1 rounded text-xs")),
+        //     styling: None,
+        // };
         rsx! {
             Link {
-              class: "",
-              to: Route::PageLoader { name: String::from(*link_key)},
-              li {
-              class: "{li_style}",
-                  div {
+                class: "",
+                to: Route::PageLoader { name: String::from(*link_key)},
+                li {
+                class: "{li_style}",
+                    div {
                         class: "flex justify-between w-full",
                         span {
-                              "{link_key}"
+                            "{link_key}"
                         }
-                        Badge {   },
-                  }
-              }
-        }}
+                        //Badge {   },
+                    }
+                }
+            }
+        }
     });
 
     rsx! {
-          nav {
-              id: "sidebar",
-                class: "{nav_style}",
-                details {
-                    class: "group",
-                    open: "true",
-                    summary {
-                          class: "p-3 w-64 h-12 bg-zinc-800 rounded-xl group-open:rounded-b-none font-semibold",
-                          "Components",
+        nav {
+            id: "sidebar",
+            class: "{nav_style}",
+            details {
+                class: "group",
+                open: "true",
+                summary {
+                        class: "p-3 w-64 h-12 bg-zinc-800 rounded-xl group-open:rounded-b-none font-semibold",
+                        "Components",
                     },
-                    ul {
-                          class: "pb-3 bg-gray-800/20 rounded-b-xl",
-
-                      }
+                ul {
+                    class: "pb-3 bg-gray-800/20 rounded-b-xl",
+                    {li_link_loader}
                 }
-          },
+            }
+        },
     }
 }

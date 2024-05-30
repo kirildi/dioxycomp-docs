@@ -12,7 +12,7 @@ pub fn Nav() -> Element {
 
             Link {
                 class: "hover:px-4 hover:bg-gray-600 hover:rounded hover:duration-100",
-                to: Route::Main {},
+                to: Route::HomePage {},
                 "Home"
             },
             Link {

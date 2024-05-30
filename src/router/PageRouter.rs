@@ -5,7 +5,7 @@ use dioxus_router::prelude::*;
 use serde::{Deserialize, Serialize};
 
 use crate::app::components::Main::Main;
-use crate::app::App;
+use crate::pages::home::HomePage::HomePage;
 use crate::router::PageLoader::PageLoader;
 
 use crate::pages::headless::HeadlessPage::HeadlessPage;
@@ -13,15 +13,15 @@ use crate::pages::headless::HeadlessPage::HeadlessPage;
 #[derive(Clone, Routable, PartialEq, Serialize, Deserialize)]
 #[rustfmt::skip]
 pub enum Route {
-    #[layout(App)]
+    #[layout(Main)]
+        #[route("/")]
+        HomePage {},
         #[nest("/headless")]
             #[layout(HeadlessPage)]                
                 #[route("/:name")]
                 PageLoader { name: String },
             #[end_layout]
         #[end_nest]
-        #[route("/")]
-        Main {},
         #[route("/:..route")]
         PageNotFound {
             route: Vec<String>,       
