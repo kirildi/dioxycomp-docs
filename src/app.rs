@@ -5,15 +5,8 @@ use dioxus_router::prelude::*;
 
 pub mod components;
 use crate::router::PageRouter::Route;
-use components::Header::Header;
 
 #[component]
 pub fn App() -> Element {
-    rsx! {
-        div{
-            class:"bg-gray-800",
-            Header {},
-            Outlet::<Route> {}
-        }
-    }
+    rsx! { Router::<Route> {} }
 }

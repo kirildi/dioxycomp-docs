@@ -52,7 +52,7 @@ pub fn Badge(props: BadgeProps) -> Element {
         id: props.id.to_owned().unwrap(),
         class: "{props.class_name.unwrap()} {badge_kind}",
         style: props.styling,
-            Label { },
+            //Label { },
         }
     }
 }

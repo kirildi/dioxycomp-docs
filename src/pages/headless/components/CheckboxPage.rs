@@ -38,7 +38,7 @@ pub fn CheckboxPage(name: String) -> Element {
                 }
                 div {
                     class: "flex justify-center items-center w-full h-24",
-                    Checkbox {}
+                    //Checkbox {}
                 }
             },
             div {

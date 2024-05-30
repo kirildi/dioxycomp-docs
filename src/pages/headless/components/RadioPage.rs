@@ -38,7 +38,7 @@ pub fn RadioPage(name: String) -> Element {
                 }
                 div {
                     class: "flex justify-center items-center w-full h-24",
-                    Radio {}
+                    //Radio {}
                 }
             },
             div {

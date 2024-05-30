@@ -35,7 +35,7 @@ index_on_404 = true
 [web.resource]
 
 # CSS style file
-style = ["/assets/css/tailwind.css", "/assets/css/styles.css", "https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"]
+style = ["/dioxycomp-docs/assets/css/tailwind.css", "/dioxycomp-docs/assets/css/styles.css", "https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"]
 
 # Javascript code file
 script = []

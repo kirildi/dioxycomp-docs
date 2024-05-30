@@ -40,7 +40,7 @@ pub fn SelectPage(name: String) -> Element {
                 }
                 div {
                     class: "flex justify-center items-center w-full h-24",
-                    Select {}
+                    //Select {}
                 }
             },
             div {
