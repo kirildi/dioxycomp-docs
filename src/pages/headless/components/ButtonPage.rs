@@ -49,7 +49,7 @@ pub fn ButtonPage(name: String) -> Element {
                 }
                 div {
                     class: "flex justify-center items-center w-full h-24",
-                    // Button {  }
+                    // Button { }
                 }
             },
             div {
@@ -89,9 +89,6 @@ pub fn ButtonPage(name: String) -> Element {
                             span { class: "rs-keyword", "pub fn " },
                             span { class: "rs-function", "HomePage" },
                             span { class: "rs-operator", "(" },
-                            span { class: "rs-fn-param", "cx: " },
-                            span { class: "rs-fn-param-type", "Scope" },
-                            span { class: "rs-operator", ", " },
                             span { class: "rs-fn-param", "name: " },
                             span { class: "rs-fn-param-type", "String" },
                             span { class: "rs-operator",")" },
@@ -187,11 +184,7 @@ pub fn ButtonPage(name: String) -> Element {
                             span { class: "", "\n" },
                             span { class: "rs-operator", "    }}" },
                             span { class: "", "\n" },
-                            span { class: "rs-fn-param", "    cx" },
-                            span { class: "rs-operator", "." },
-                            span { class: "rs-fn-object-member", "render" },
-                            span { class: "rs-operator", "(" },
-                            span { class: "rs-fn-object-member", "rsx!" },
+                            span { class: "rs-fn-object-member", "    rsx!" },
                             span { class: "rs-operator", "{{" },
                             span { class: "", "\n" },
                             span { class: "rs-child-element", "        p " },
@@ -199,7 +192,7 @@ pub fn ButtonPage(name: String) -> Element {
                             span { class: "", "\n" },
                             span { class: "rs-element", "            Button " },
                             span { class: "rs-operator", "{{ " },
-                            span { class: "rs-props-name", "button_props" },
+                            span { class: "rs-props-name", "props" },
                             span { class: "rs-operator", ": " },
                             span { class: "rs-variable-name", "bp " },
                             span { class: "rs-operator", " }}" },
@@ -208,7 +201,6 @@ pub fn ButtonPage(name: String) -> Element {
                             span { class: "rs-operator", "        }}" },
                             span { class: "", "\n" },
                             span { class: "rs-operator", "    }}" },
-                            span { class: "rs-operator", ")" },
                             span { class: "", "\n" },
                             span { class: "rs-operator", "}}" },
                         }
