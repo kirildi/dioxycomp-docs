@@ -65,9 +65,14 @@ async fn main() {
 #[cfg(not(feature = "server"))]
 fn main() {
     #[cfg(all(feature = "web", not(feature = "server")))]
-    dioxus_web::launch::launch(
-        app::App,
-        Default::default(),
-        dioxus_web::Config::default().hydrate(true),
-    )
+    {
+        wasm_logger::init(wasm_logger::Config::new(log::Level::Info));
+        // std::panic::set_hook(Box::new(console_error_panic_hook::hook));
+
+        dioxus_web::launch::launch(
+            app::App,
+            Default::default(),
+            dioxus_web::Config::default().hydrate(true),
+        )
+    }
 }

@@ -4,18 +4,18 @@ pub use dioxycomp_headless::components::Button::ButtonProps;
 
 #[component]
 pub fn ButtonPage(name: String) -> Element {
-    let bp = ButtonProps {
-        id: Some(String::from("0")),
-        label: Some(String::from("OK")),
-        autofocus: Some(false),
-        disabled: Some(false),
-        name: Some(String::from("")),
-        r#type: Some(String::from("")),
-        value: Some(String::from("")),
-        styles: Some(String::from(
-            "width:3em; height:2em; font-size: 1em; border:1px solid #fef",
-        )),
-    };
+    // let bp = ButtonProps {
+    //     id: Some(String::from("0")),
+    //     label: Some(String::from("OK")),
+    //     autofocus: Some(false),
+    //     disabled: Some(false),
+    //     name: Some(String::from("")),
+    //     r#type: Some(String::from("")),
+    //     value: Some(String::from("")),
+    //     styles: Some(String::from(
+    //         "width:3em; height:2em; font-size: 1em; border:1px solid #fef",
+    //     )),
+    // };
     rsx! {
         section {
             id: "main_heading",
@@ -49,7 +49,7 @@ pub fn ButtonPage(name: String) -> Element {
                 }
                 div {
                     class: "flex justify-center items-center w-full h-24",
-                    // Button { }
+                    Button { onpress: move |event| log::info!("clicked {event:?}"), "OK" }
                 }
             },
             div {
@@ -74,16 +74,16 @@ pub fn ButtonPage(name: String) -> Element {
                             span { class: "rs-element", "Button"},
                             span { class: "rs-operator", ";" },
                             span { class: "", "\n" },
-                            span { class: "rs-keyword", "pub use "},
-                            span { class: "rs-module", "dioxycomp_headless" },
-                            span { class: "rs-operator", "::" },
-                            span { class: "rs-module", "components"},
-                            span { class: "rs-operator", "::" },
-                            span { class: "rs-module", "Button"},
-                            span { class: "rs-operator", "::" },
-                            span { class: "rs-module", "ButtonProps"},
-                            span { class: "rs-operator", ";" },
-                            span { class: "", "\n" },
+                            // span { class: "rs-keyword", "pub use "},
+                            // span { class: "rs-module", "dioxycomp_headless" },
+                            // span { class: "rs-operator", "::" },
+                            // span { class: "rs-module", "components"},
+                            // span { class: "rs-operator", "::" },
+                            // span { class: "rs-module", "Button"},
+                            // span { class: "rs-operator", "::" },
+                            // span { class: "rs-module", "ButtonProps"},
+                            // span { class: "rs-operator", ";" },
+                            // span { class: "", "\n" },
                             span { class: "rs-comment", "//... Some other code here "},
                             span { class: "", "\n" },
                             span { class: "rs-keyword", "pub fn " },
