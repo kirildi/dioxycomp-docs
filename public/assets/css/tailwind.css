@@ -898,6 +898,10 @@ video {
   padding-left: 1rem;
 }
 
+.pl-8 {
+  padding-left: 2rem;
+}
+
 .pt-12 {
   padding-top: 3rem;
 }
