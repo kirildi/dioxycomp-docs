@@ -40,7 +40,22 @@ pub fn SelectPage(name: String) -> Element {
                 }
                 div {
                     class: "flex justify-center items-center w-full h-24",
-                    //Select {}
+                    Select {
+                        value: "Option 1",
+                        styles: "width: 9rem; height: 3rem; padding: 0.6rem; background-color: #404040;",
+                        option {
+                            value: "option 1",
+                                "option 1"
+                        },
+                        option {
+                            value: "option 2",
+                            "option 2"
+                        },
+                        option {
+                            value: "option 3",
+                            "option 3"
+                        }
+                    }
                 }
             },
             div {
@@ -52,7 +67,7 @@ pub fn SelectPage(name: String) -> Element {
                 div {
                     class: "flex justify-start items-center w-full rounded-xl bg-zinc-900",
                     pre {
-                        class: "py-4 pl-16",
+                        class: "py-4 pl-8",
                         code {
                             class: "text-sm whitespace-pre-wrap",
                             span { class: "rs-keyword", "pub use "},
@@ -77,17 +92,58 @@ pub fn SelectPage(name: String) -> Element {
                             span { class: "rs-type", "Element " },
                             span { class: "rs-operator", "{{" },
                             span { class: "", "\n" },
-                            span { class: "rs-fn-object-member", "rsx!" },
+                            span { class: "rs-fn-object-member", "    rsx! " },
                             span { class: "rs-operator", "{{" },
                             span { class: "", "\n" },
                             span { class: "rs-child-element", "        p " },
                             span { class: "rs-operator", "{{" },
                             span { class: "", "\n" },
                             span { class: "rs-element", "            Select " },
-                            span { class: "rs-operator", "{{ }}" },
+                            span { class: "rs-operator", "{{" },
+                            span { class: "", "\n" },
+                            span { class: "rs-element", "                option " },
+                            span { class: "rs-operator", "{{" },
+                            span { class: "", "\n" },
+                            span { class: "rs-variable-name", "                    value" },
+                            span { class: "rs-operator", ":" },
+                            span { class: "rs-prop-value", " \"option1\"" },
                             span { class: "rs-operator", "," },
                             span { class: "", "\n" },
-                            span { class: "rs-operator", "        }}" },
+                            span { class: "rs-prop-value", "                    \"option1\"" },
+                            span { class: "rs-operator", "," },
+                            span { class: "", "\n" },
+                            span { class: "rs-operator", "                }}," },
+                            span { class: "", "\n" },
+                            span { class: "rs-element", "                option " },
+                            span { class: "rs-operator", "{{" },
+                            span { class: "", "\n" },
+                            span { class: "rs-variable-name", "                    value" },
+                            span { class: "rs-operator", ":" },
+                            span { class: "rs-prop-value", " \"option2\"" },
+                            span { class: "rs-operator", "," },
+                            span { class: "", "\n" },
+                            span { class: "rs-prop-value", "                    \"option2\"" },
+                            span { class: "rs-operator", "," },
+                            span { class: "", "\n" },
+                            span { class: "rs-operator", "                }}," },
+                            span { class: "", "\n" },
+                            span { class: "rs-element", "                option " },
+                            span { class: "rs-operator", "{{" },
+                            span { class: "", "\n" },
+                            span { class: "rs-variable-name", "                    value" },
+                            span { class: "rs-operator", ":" },
+                            span { class: "rs-prop-value", " \"option3\"" },
+                            span { class: "rs-operator", "," },
+                            span { class: "", "\n" },
+                            span { class: "rs-prop-value", "                    \"option3\"" },
+                            span { class: "rs-operator", "," },
+                            span { class: "", "\n" },
+                            span { class: "rs-operator", "                }}," },
+                            span { class: "", "\n" },
+                            span { class: "rs-operator", "            }}" },
+                            span { class: "rs-operator", "," },
+                            span { class: "", "\n" },
+                            span { class: "rs-operator", "        }}," },
                             span { class: "", "\n" },
                             span { class: "rs-operator", "    }}" },
                             span { class: "", "\n" },
