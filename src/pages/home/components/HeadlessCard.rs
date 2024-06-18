@@ -27,7 +27,7 @@ pub fn HeadlessCard() -> Element {
                     },
                     p {
                         class: "text-lg text-left break-words",
-                        "Simple unstyled, open-source, accessible UI components, to use in your applications "
+                        "Simple unstyled, open-source, UI components, to use in your applications "
                     }
                 }
             }

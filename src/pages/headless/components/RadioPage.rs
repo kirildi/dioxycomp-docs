@@ -38,7 +38,12 @@ pub fn RadioPage(name: String) -> Element {
                 }
                 div {
                     class: "flex justify-center items-center w-full h-24",
-                    //Radio {}
+                    Radio { onclick: move |event| log::info!("changed {event:?}"), id: "radio-n", styles: "width:1em; height:1em;"}
+                    label {
+                        style: "padding-left: 1rem",
+                        r#for: "radio-n",
+                        "Selected"
+                    }
                 }
             },
             div {
@@ -50,7 +55,7 @@ pub fn RadioPage(name: String) -> Element {
                 div {
                     class: "flex justify-start items-center w-full rounded-xl bg-zinc-900",
                     pre {
-                        class: "py-4 pl-16",
+                        class: "py-4 pl-8",
                         code {
                             class: "text-sm whitespace-pre-wrap",
                             span { class: "rs-keyword", "pub use "},
@@ -75,15 +80,31 @@ pub fn RadioPage(name: String) -> Element {
                             span { class: "rs-type", "Element " },
                             span { class: "rs-operator", "{{" },
                             span { class: "", "\n" },
-                            span { class: "rs-fn-object-member", "rsx!" },
+                            span { class: "rs-fn-object-member", "    rsx! " },
                             span { class: "rs-operator", "{{" },
                             span { class: "", "\n" },
                             span { class: "rs-child-element", "        p " },
                             span { class: "rs-operator", "{{" },
                             span { class: "", "\n" },
                             span { class: "rs-element", "            Radio " },
-                            span { class: "rs-operator", "{{ }}" },
-                            span { class: "rs-operator", "," },
+                            span { class: "rs-operator", "{{ " },
+                            span { class: "rs-props-name", "onclick" },
+                            span { class: "rs-operator", ": " },
+                            span { class: "rs-operator", "move " },
+                            span { class: "rs-operator", "|" },
+                            span { class: "rs-variable-name", "event" },
+                            span { class: "rs-operator", "|" },
+                            span { class: "rs-operator", " {{}}" },
+                            span { class: "rs-operator", ", " },
+                            span { class: "rs-variable-name", "id" },
+                            span { class: "rs-operator", ": " },
+                            span { class: "rs-prop-value", "\"radio\"" },
+                            span { class: "rs-operator", ", " },
+                            span { class: "rs-variable-name", "styles" },
+                            span { class: "rs-operator", ": " },
+                            span { class: "rs-prop-value", "\"width: 1em; height: 1em;\"" },
+                            span { class: "rs-operator", " }}" },
+                            span { class: "rs-operator", ", " },
                             span { class: "", "\n" },
                             span { class: "rs-operator", "        }}" },
                             span { class: "", "\n" },
