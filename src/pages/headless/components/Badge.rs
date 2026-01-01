@@ -50,7 +50,7 @@ pub fn Badge(props: BadgeProps) -> Element {
     rsx! {
         span {
         id: props.id.to_owned().unwrap(),
-        class: "{props.class_name.unwrap()} {badge_kind}",
+        class: "{props.class_name.to_owned().unwrap()} {badge_kind}",
         style: props.styling,
             //Label { },
         }

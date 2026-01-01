@@ -7,72 +7,44 @@
 
 #![allow(unused)]
 use dioxus::prelude::*;
-use dioxus_fullstack::{launch, prelude::*};
-use dioxus_router::prelude::*;
 use serde::{Deserialize, Serialize};
-
-use dioxycomp_headless::components::*;
 
 pub mod app;
 pub mod pages;
 pub mod router;
-
 use router::PageRouter::Route;
 
-use fs_extra::dir::copy;
-
-// Generate all routes and output them to the docs path
-#[cfg(feature = "server")]
-#[tokio::main]
-async fn main() {
-    let index_html = std::fs::read_to_string("docs/index.html").unwrap();
-    let main_tag = r#"<div id="main">"#;
-    let (before_body, after_body) = index_html.split_once(main_tag).expect("main id not found");
-    let after_body = after_body
-        .split_once("</div>")
-        .expect("main id not found")
-        .1;
-    let wrapper = DefaultRenderer {
-        before_body: before_body.to_string() + main_tag,
-        after_body: "</div>".to_string() + after_body,
-    };
-    let mut renderer = IncrementalRenderer::builder()
-        .static_dir("docs_static")
-        .map_path(|route| {
-            let mut path = std::env::current_dir().unwrap();
-            path.push("docs_static");
-            for segment in route.split('/') {
-                path.push(segment);
-            }
-            path
-        })
-        .build();
-    renderer.renderer_mut().pre_render = true;
-    pre_cache_static_routes::<Route, _>(&mut renderer, &wrapper)
-        .await
-        .unwrap();
-
-    // Copy everything from docs_static to docs
-    let mut options = fs_extra::dir::CopyOptions::new();
-    options.overwrite = true;
-    options.content_only = true;
-    options.copy_inside = true;
-    std::fs::create_dir_all(format!("./docs")).unwrap();
-    fs_extra::dir::move_dir("./docs_static", &format!("./docs"), &options).unwrap();
-}
-
 // Hydrate the page
-#[cfg(not(feature = "server"))]
+// #[cfg(not(feature = "server"))]
 fn main() {
-    #[cfg(all(feature = "web", not(feature = "server")))]
-    {
-        wasm_logger::init(wasm_logger::Config::new(log::Level::Info));
-        // std::panic::set_hook(Box::new(console_error_panic_hook::hook));
-
-        dioxus_web::launch::launch(
-            app::App,
-            Default::default(),
-            dioxus_web::Config::default().hydrate(true),
-        )
+    #[server(endpoint = "static_routes", output = server_fn::codec::Json)]
+    async fn static_routes() -> Result<Vec<String>, ServerFnError> {
+        // The `Routable` trait has a `static_routes` method that returns all static routes in the enum
+        Ok(Route::static_routes()
+            .iter()
+            .map(ToString::to_string)
+            .collect())
     }
+    dioxus::LaunchBuilder::new()
+        // Set the server config only if we are building the server target
+        .with_cfg(server_only! {
+            ServeConfig::builder()
+                // Enable incremental rendering
+                .incremental(
+                    dioxus::server::IncrementalRendererConfig::new()
+                        // Store static files in the public directory where other static assets like wasm are stored
+                        .static_dir(
+                            std::env::current_exe()
+                                .unwrap()
+                                .parent()
+                                .unwrap()
+                                .join("public")
+                        )
+                        // Don't clear the public folder on every build. The public folder has other files including the wasm
+                        // binary and static assets required for the app to run
+                        .clear_cache(false)
+                )
+                .enable_out_of_order_streaming()
+        })
+        .launch(app::App);
 }

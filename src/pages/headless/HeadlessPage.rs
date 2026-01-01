@@ -1,7 +1,6 @@
 #![allow(non_snake_case)]
 
 use dioxus::prelude::*;
-use dioxus_router::prelude::*;
 
 use super::components::SideBarNav::SideBarNav;
 use crate::router::PageRouter::Route;

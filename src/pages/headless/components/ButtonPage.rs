@@ -49,7 +49,7 @@ pub fn ButtonPage(name: String) -> Element {
                 }
                 div {
                     class: "flex justify-center items-center w-full h-24",
-                    Button { onpress: move |event| log::info!("clicked {event:?}"), "OK" }
+                    Button { }
                 }
             },
             div {
