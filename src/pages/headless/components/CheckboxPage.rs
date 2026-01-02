@@ -38,7 +38,7 @@ pub fn CheckboxPage(name: String) -> Element {
                 }
                 div {
                     class: "flex justify-center items-center w-full h-24",
-                    Checkbox { onpress: move |event| log::info!("clicked {event:?}"), name:"checkbox", styles: "width:1em; height:1em;" },
+                    Checkbox { },
                     label{
                         style: "padding-left: 1rem",
                         r#for: "checkbox",

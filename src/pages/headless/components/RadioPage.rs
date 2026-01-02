@@ -38,7 +38,7 @@ pub fn RadioPage(name: String) -> Element {
                 }
                 div {
                     class: "flex justify-center items-center w-full h-24",
-                    Radio { onclick: move |event| log::info!("changed {event:?}"), id: "radio-n", styles: "width:1em; height:1em;"}
+                    Radio { },
                     label {
                         style: "padding-left: 1rem",
                         r#for: "radio-n",

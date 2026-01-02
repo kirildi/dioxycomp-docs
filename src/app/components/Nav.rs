@@ -1,8 +1,6 @@
 #![allow(non_snake_case)]
-use dioxus::prelude::*;
-use dioxus_router::prelude::*;
-
 use crate::router::PageRouter::Route;
+use dioxus::prelude::*;
 
 #[component]
 pub fn Nav() -> Element {

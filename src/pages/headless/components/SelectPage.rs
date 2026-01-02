@@ -40,22 +40,7 @@ pub fn SelectPage(name: String) -> Element {
                 }
                 div {
                     class: "flex justify-center items-center w-full h-24",
-                    Select {
-                        value: "Option 1",
-                        styles: "width: 9rem; height: 3rem; padding: 0.6rem; background-color: #404040;",
-                        option {
-                            value: "option 1",
-                                "option 1"
-                        },
-                        option {
-                            value: "option 2",
-                            "option 2"
-                        },
-                        option {
-                            value: "option 3",
-                            "option 3"
-                        }
-                    }
+                    Select { }
                 }
             },
             div {

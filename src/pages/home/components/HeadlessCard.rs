@@ -1,7 +1,6 @@
 #![allow(non_snake_case)]
 use crate::router::PageRouter::Route;
 use dioxus::prelude::*;
-use dioxus_router::prelude::Link;
 
 pub fn HeadlessCard() -> Element {
     rsx! {

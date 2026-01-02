@@ -1,7 +1,6 @@
 #![allow(non_snake_case)]
 
 use dioxus::prelude::*;
-use dioxus_router::prelude::*;
 
 use crate::pages::headless::components::ButtonPage::ButtonPage;
 use crate::pages::headless::components::CheckboxPage::CheckboxPage;
