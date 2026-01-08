@@ -8,7 +8,7 @@ use crate::router::PageRouter::Route;
 pub fn Main() -> Element {
     rsx! {
         div{
-            class:"bg-gray-800",
+            class:"body__wrapper w-full h-full bg-zinc-900",
             Header {},
             main {
                 class: "w-full relative pb-24",
