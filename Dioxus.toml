@@ -18,7 +18,7 @@ level = "4"
 
 # HTML title tag content
 title = "DioxycompDocs"
-base_path="dioxycomp-docs/public"
+base_path="dioxycomp-docs"
 
 [web.watcher]
 
