@@ -315,16 +315,28 @@ if (!('encodeInto' in cachedTextEncoder)) {
 
 let WASM_VECTOR_LEN = 0;
 
+function _ZN12wasm_bindgen7convert8closures1_6invoke17h5ccb6a9a8a0caed3E(arg0, arg1, arg2) {
+    _assertNum(arg0);
+    _assertNum(arg1);
+    wasm._ZN12wasm_bindgen7convert8closures1_6invoke17h5ccb6a9a8a0caed3E(arg0, arg1, arg2);
+}
+
+function _ZN12wasm_bindgen7convert8closures1_6invoke17h58a2985425542828E(arg0, arg1) {
+    _assertNum(arg0);
+    _assertNum(arg1);
+    wasm._ZN12wasm_bindgen7convert8closures1_6invoke17h58a2985425542828E(arg0, arg1);
+}
+
 function _ZN12wasm_bindgen7convert8closures1_6invoke17h7cb294fc576def58E(arg0, arg1, arg2) {
     _assertNum(arg0);
     _assertNum(arg1);
     wasm._ZN12wasm_bindgen7convert8closures1_6invoke17h7cb294fc576def58E(arg0, arg1, arg2);
 }
 
-function _ZN12wasm_bindgen7convert8closures1_6invoke17h5ccb6a9a8a0caed3E(arg0, arg1, arg2) {
+function _ZN12wasm_bindgen7convert8closures1_1_6invoke17h2d21901ff305d165E(arg0, arg1, arg2) {
     _assertNum(arg0);
     _assertNum(arg1);
-    wasm._ZN12wasm_bindgen7convert8closures1_6invoke17h5ccb6a9a8a0caed3E(arg0, arg1, arg2);
+    wasm._ZN12wasm_bindgen7convert8closures1_1_6invoke17h2d21901ff305d165E(arg0, arg1, arg2);
 }
 
 function _ZN12wasm_bindgen7convert8closures1_6invoke17hd7e701f398874a56E(arg0, arg1, arg2, arg3, arg4, arg5) {
@@ -339,28 +351,16 @@ function _ZN12wasm_bindgen7convert8closures1_6invoke17hd7e701f398874a56E(arg0, a
     wasm._ZN12wasm_bindgen7convert8closures1_6invoke17hd7e701f398874a56E(arg0, arg1, ptr0, len0, arg3, ptr1, len1, ptr2, len2);
 }
 
-function _ZN12wasm_bindgen7convert8closures1_1_6invoke17h2d21901ff305d165E(arg0, arg1, arg2) {
+function _ZN12wasm_bindgen7convert8closures1_6invoke17h36605b7abac83424E(arg0, arg1, arg2) {
     _assertNum(arg0);
     _assertNum(arg1);
-    wasm._ZN12wasm_bindgen7convert8closures1_1_6invoke17h2d21901ff305d165E(arg0, arg1, arg2);
-}
-
-function _ZN12wasm_bindgen7convert8closures1_6invoke17h58a2985425542828E(arg0, arg1) {
-    _assertNum(arg0);
-    _assertNum(arg1);
-    wasm._ZN12wasm_bindgen7convert8closures1_6invoke17h58a2985425542828E(arg0, arg1);
+    wasm._ZN12wasm_bindgen7convert8closures1_6invoke17h36605b7abac83424E(arg0, arg1, arg2);
 }
 
 function _ZN12wasm_bindgen7convert8closures1_6invoke17h14ff9de9898a72ebE(arg0, arg1, arg2) {
     _assertNum(arg0);
     _assertNum(arg1);
     wasm._ZN12wasm_bindgen7convert8closures1_6invoke17h14ff9de9898a72ebE(arg0, arg1, arg2);
-}
-
-function _ZN12wasm_bindgen7convert8closures1_6invoke17h36605b7abac83424E(arg0, arg1, arg2) {
-    _assertNum(arg0);
-    _assertNum(arg1);
-    wasm._ZN12wasm_bindgen7convert8closures1_6invoke17h36605b7abac83424E(arg0, arg1, arg2);
 }
 
 function _ZN12wasm_bindgen7convert8closures1_6invoke17hb3ad0e713e40079cE(arg0, arg1) {
@@ -2288,7 +2288,7 @@ export default __wbg_init;
 globalThis.__wasm_split_main_initSync = initSync;
 
 // Actually perform the load
-__wbg_init({module_or_path: "/dioxycomp-docs/wasm/dioxycomp-docs_bg.wasm"}).then((wasm) => {
+__wbg_init({module_or_path: "/dioxycomp-docs/public/wasm/dioxycomp-docs_bg.wasm"}).then((wasm) => {
     // assign this module to be accessible globally
     globalThis.__dx_mainWasm = wasm;
     globalThis.__dx_mainInit = __wbg_init;
