@@ -1,5 +1,4 @@
 [application]
-
 # Web `build` & `serve` dist path
 out_dir = "docs"
 
@@ -15,10 +14,9 @@ default_platform = "web"
 level = "4"
 
 [web.app]
-
+base_path="dioxycomp-docs"
 # HTML title tag content
 title = "DioxycompDocs"
-base_path="dioxycomp-docs"
 
 [web.watcher]
 

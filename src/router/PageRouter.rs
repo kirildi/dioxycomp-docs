@@ -9,7 +9,7 @@ use crate::router::PageLoader::PageLoader;
 
 use crate::pages::headless::HeadlessPage::HeadlessPage;
 
-#[derive(Clone, Routable, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Routable, PartialEq, Serialize, Deserialize, Debug)]
 #[rustfmt::skip]
 pub enum Route {
     #[layout(Main)]
