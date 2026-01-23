@@ -38,11 +38,11 @@ pub fn RadioPage(name: String) -> Element {
                 }
                 div {
                     class: "flex justify-center items-center w-full h-24",
-                    Radio { },
+                    Radio { on_click: move |event| {}},
                     label {
                         style: "padding-left: 1rem",
                         r#for: "radio-n",
-                        "Selected"
+                        "Select"
                     }
                 }
             },
