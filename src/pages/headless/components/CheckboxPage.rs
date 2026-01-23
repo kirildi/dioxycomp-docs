@@ -1,10 +1,11 @@
 #![allow(non_snake_case)]
 
 use dioxus::prelude::*;
-use dioxycomp_headless::components::Checkbox::Checkbox;
+use dioxycomp_headless::components::{Checkbox::Checkbox, Label::Label};
 
 #[component]
 pub fn CheckboxPage(name: String) -> Element {
+    let mut checked = use_signal(|| false);
     rsx! {
         section {
             id: "main_heading",
@@ -38,11 +39,11 @@ pub fn CheckboxPage(name: String) -> Element {
                 }
                 div {
                     class: "flex justify-center items-center w-full h-24",
-                    Checkbox { },
-                    label{
-                        style: "padding-left: 1rem",
+                    Checkbox { on_click: move |event| {checked.toggle()}},
+                    Label {
                         r#for: "checkbox",
-                        "Check me"
+                        style: "padding-left: 1rem",
+                        if checked() {  "Checked" } else { "Check me"},
                     },
                 }
             },

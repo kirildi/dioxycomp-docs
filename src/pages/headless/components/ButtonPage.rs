@@ -1,21 +1,11 @@
+use dioxus::html::button;
 use dioxus::prelude::*;
 pub use dioxycomp_headless::components::Button::Button;
 pub use dioxycomp_headless::components::Button::ButtonProps;
 
 #[component]
 pub fn ButtonPage(name: String) -> Element {
-    // let bp = ButtonProps {
-    //     id: Some(String::from("0")),
-    //     label: Some(String::from("OK")),
-    //     autofocus: Some(false),
-    //     disabled: Some(false),
-    //     name: Some(String::from("")),
-    //     r#type: Some(String::from("")),
-    //     value: Some(String::from("")),
-    //     styles: Some(String::from(
-    //         "width:3em; height:2em; font-size: 1em; border:1px solid #fef",
-    //     )),
-    // };
+    let mut button_state = use_signal(|| false);
     rsx! {
         section {
             id: "main_heading",
@@ -49,7 +39,8 @@ pub fn ButtonPage(name: String) -> Element {
                 }
                 div {
                     class: "flex justify-center items-center w-full h-24",
-                    Button { }
+                    Button { on_click: move |event| button_state.toggle(), "OK" }
+
                 }
             },
             div {

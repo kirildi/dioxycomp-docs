@@ -21,7 +21,7 @@ pub struct BadgeProps {
     pub value: Option<String>,
     pub kind: Option<BadgeKind>,
     pub class_name: Option<String>,
-    pub styling: Option<String>,
+    pub style: Option<String>,
 }
 #[component]
 pub fn Badge(props: BadgeProps) -> Element {
@@ -39,20 +39,17 @@ pub fn Badge(props: BadgeProps) -> Element {
         BadgeKind::Final => String::from("FINAL"),
     };
 
-    let lp: LabelProps = LabelProps {
-        id: Some(props.id.to_owned().unwrap()),
-        r#for: None,
-        value: Some(label_value),
-        class_name: Some(String::from("")),
-        styles: Some(label_style),
-    };
-
     rsx! {
         span {
-        id: props.id.to_owned().unwrap(),
-        class: "{props.class_name.to_owned().unwrap()} {badge_kind}",
-        style: props.styling,
-            //Label { },
+            id: props.id.to_owned().unwrap(),
+            class: "{props.class_name.to_owned().unwrap()} {badge_kind}",
+            style: props.style,
+            Label {        id: Some(props.id.to_owned().unwrap()),
+                r#for: None,
+                value: Some(label_value),
+                class_name: Some(String::from("")),
+                style: Some(label_style),
+            },
         }
     }
 }
