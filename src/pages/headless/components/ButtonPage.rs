@@ -85,7 +85,7 @@ pub fn ButtonPage(name: String) -> Element {
                             span { class: "", "\n" },
                             span { class: "rs-element", "            Button " },
                             span { class: "rs-operator", "{{ " },
-                            span { class: "rs-props-name", "onpress" },
+                            span { class: "rs-props-name", "on_click" },
                             span { class: "rs-operator", ": " },
                             span { class: "rs-operator", "move " },
                             span { class: "rs-operator", "|" },

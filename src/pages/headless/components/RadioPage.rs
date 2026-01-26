@@ -1,6 +1,7 @@
 #![allow(non_snake_case)]
 
 use dioxus::prelude::*;
+use dioxycomp_headless::components::Label::Label;
 use dioxycomp_headless::components::Radio::Radio;
 
 #[component]
@@ -39,9 +40,9 @@ pub fn RadioPage(name: String) -> Element {
                 div {
                     class: "flex justify-center items-center w-full h-24",
                     Radio { on_click: move |event| {}},
-                    label {
-                        style: "padding-left: 1rem",
+                    Label {
                         r#for: "radio-n",
+                        style: "padding-left: 1rem",
                         "Select"
                     }
                 }
@@ -88,21 +89,13 @@ pub fn RadioPage(name: String) -> Element {
                             span { class: "", "\n" },
                             span { class: "rs-element", "            Radio " },
                             span { class: "rs-operator", "{{ " },
-                            span { class: "rs-props-name", "onclick" },
+                            span { class: "rs-props-name", "on_click" },
                             span { class: "rs-operator", ": " },
                             span { class: "rs-operator", "move " },
                             span { class: "rs-operator", "|" },
                             span { class: "rs-variable-name", "event" },
                             span { class: "rs-operator", "|" },
                             span { class: "rs-operator", " {{}}" },
-                            span { class: "rs-operator", ", " },
-                            span { class: "rs-variable-name", "id" },
-                            span { class: "rs-operator", ": " },
-                            span { class: "rs-prop-value", "\"radio\"" },
-                            span { class: "rs-operator", ", " },
-                            span { class: "rs-variable-name", "styles" },
-                            span { class: "rs-operator", ": " },
-                            span { class: "rs-prop-value", "\"width: 1em; height: 1em;\"" },
                             span { class: "rs-operator", " }}" },
                             span { class: "rs-operator", ", " },
                             span { class: "", "\n" },
