@@ -11,7 +11,7 @@ pub fn Main() -> Element {
             class:"body__wrapper w-full h-full bg-zinc-900",
             Header {},
             main {
-                class: "w-full relative",
+                class: "w-full relative min-h-dvh",
                 Outlet::<Route> {}
             },
         }

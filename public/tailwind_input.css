@@ -2,11 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
-main section {
-      @apply py-6;
-}
-
 hr {
       @apply h-1 border-none bg-neutral-300;
 }
