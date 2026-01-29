@@ -6,8 +6,8 @@ use crate::pages::headless::components::Badge::{Badge, BadgeKind, BadgeProps};
 use crate::router::PageRouter::Route;
 
 pub fn SideBarNav() -> Element {
-    let nav_style = "fixed p-4 w-full h-2/6 bg-neutral-900 lg:w-72 lg:h-full";
-    let li_style = "flex-none px-4 py-2 hover:bg-neutral-600 hover:rounded-md hover:duration-100";
+    let nav_style = "p-4 bg-neutral-900";
+    let li_style = "px-4 py-2 hover:bg-neutral-600 hover:rounded-md hover:duration-100";
 
     let links = ["Button", "Checkbox", "Radio", "Select"];
     let badge_class = "";
@@ -42,10 +42,10 @@ pub fn SideBarNav() -> Element {
             id: "sidebar",
             class: "{nav_style}",
             details {
-                class: "group",
+                class: "group h-2/6 max-w-72",
                 open: "true",
                 summary {
-                        class: "p-3 w-64 h-12 bg-zinc-800 rounded-xl group-open:rounded-b-none font-semibold",
+                        class: "p-3 lg:w-72 h-12 bg-zinc-800 rounded-xl group-open:rounded-b-none font-semibold",
                         "Components",
                     },
                 ul {
