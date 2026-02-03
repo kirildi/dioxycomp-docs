@@ -12,3 +12,8 @@
       -moz-osx-font-smoothing: grayscale;
       -webkit-text-size-adjust: 100%;
 }
+
+.main__content section p{
+      padding-top: 1.5rem;
+      padding-bottom: 1.5rem;
+}
