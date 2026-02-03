@@ -12,7 +12,7 @@ pub fn HeadlessPage() -> Element {
             class: "flex flex-1 w-full",
             SideBarNav {},
             main {
-                class: "grow relative px-24 pt-12 pb-6 text-xl lg:w-full lg:h-full leading-normal",
+                class: "main__content grow relative px-24 pt-12 pb-6 text-xl lg:w-full lg:h-full leading-normal",
                 Outlet::<Route> {}
             },
         }
